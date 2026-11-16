@@ -1,0 +1,9 @@
+{% extends "page_base.html" %}
+{% from "_macros.html" import table %}
+{% block title %}Catalogue{% endblock %}
+{% block heading %}Catalogue{% endblock %}
+{% block content %}
+<section>
+    {{ table(books, [('book_id','ID'),('title','Title'),('price','Price'),('publish_year','Year'),('author','Author'),('publisher','Publisher'),('category','Category')], 'The library has no books yet.') }}
+</section>
+{% endblock %}

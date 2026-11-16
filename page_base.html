@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Library{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main>
+    <div class="topbar">
+        <h1>{% block heading %}Library{% endblock %}</h1>
+        <div class="user-box">
+            <span>Hi, {{ session.get('name') }}</span>
+            <form method="post" action="{{ url_for('logout') }}">
+                <button type="submit">Log out</button>
+            </form>
+        </div>
+    </div>
+    {% include '_nav.html' %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}<ul class="messages">{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>{% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

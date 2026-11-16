@@ -1,0 +1,18 @@
+{% extends "page_base.html" %}
+{% from "_macros.html" import table %}
+{% block title %}Reports{% endblock %}
+{% block heading %}Reports{% endblock %}
+{% block content %}
+<section>
+    <h2>Books and average price of each category</h2>
+    {{ table(categories, [('category','Category'),('books','Books'),('average_price','Average price')]) }}
+</section>
+<section>
+    <h2>Authors who wrote at least 2 books</h2>
+    {{ table(authors, [('author_id','ID'),('name','Author'),('books','Books')], 'No author wrote 2 books yet.') }}
+</section>
+<section>
+    <h2>Prices of the whole library</h2>
+    {{ table(summary, [('total_price','Total price'),('smallest_price','Smallest price'),('largest_price','Largest price')]) }}
+</section>
+{% endblock %}

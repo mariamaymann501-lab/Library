@@ -1,0 +1,14 @@
+{% extends "page_base.html" %}
+{% from "_macros.html" import table %}
+{% block title %}Most borrowed{% endblock %}
+{% block heading %}Most borrowed{% endblock %}
+{% block content %}
+<section>
+    <h2>The 3 books with the most loans</h2>
+    {{ table(top_books, [('book_id','ID'),('title','Title'),('loans','Loans')], 'There are no loans yet.') }}
+</section>
+<section>
+    <h2>The member with the most loans</h2>
+    {{ table(top_members, [('member_id','ID'),('name','Member'),('loans','Loans')], 'There are no loans yet.') }}
+</section>
+{% endblock %}

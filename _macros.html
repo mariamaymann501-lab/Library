@@ -1,0 +1,11 @@
+{# table(rows, columns): columns is a list of (key, heading). A missing value (NULL) is shown as a dash. #}
+{% macro table(rows, columns, empty="No rows.") %}
+<table>
+    <tr>{% for key, heading in columns %}<th>{{ heading }}</th>{% endfor %}</tr>
+    {% for row in rows %}
+    <tr>{% for key, heading in columns %}<td>{% if row[key] is none %}&mdash;{% else %}{{ row[key] }}{% endif %}</td>{% endfor %}</tr>
+    {% else %}
+    <tr><td colspan="{{ columns|length }}">{{ empty }}</td></tr>
+    {% endfor %}
+</table>
+{% endmacro %}

@@ -1,0 +1,18 @@
+{% extends "page_base.html" %}
+{% from "_macros.html" import table %}
+{% block title %}Loans{% endblock %}
+{% block heading %}Loans{% endblock %}
+{% block content %}
+<section>
+    <h2>Loans not returned yet</h2>
+    {{ table(open_loans, [('loan_id','Loan'),('book','Book'),('member','Member'),('loan_date','Loan date')], 'Every book has been returned.') }}
+</section>
+<section>
+    <h2>Members who never borrowed a book</h2>
+    {{ table(idle_members, [('member_id','ID'),('name','Member'),('email','Email')], 'Every member has borrowed a book.') }}
+</section>
+<section>
+    <h2>Books that were never borrowed</h2>
+    {{ table(unborrowed_books, [('book_id','ID'),('title','Title')], 'Every book has been borrowed at least once.') }}
+</section>
+{% endblock %}

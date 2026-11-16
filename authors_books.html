@@ -1,0 +1,14 @@
+{% extends "page_base.html" %}
+{% from "_macros.html" import table %}
+{% block title %}Authors and books{% endblock %}
+{% block heading %}Authors and books{% endblock %}
+{% block content %}
+<section>
+    <h2>Every author with the number of books (including 0)</h2>
+    {{ table(author_counts, [('author_id','ID'),('name','Author'),('books','Books')], 'There are no authors yet.') }}
+</section>
+<section>
+    <h2>Books whose author and publisher come from the same country</h2>
+    {{ table(same_country, [('book_id','ID'),('title','Title'),('author','Author'),('publisher','Publisher'),('country','Country')], 'No book has an author and a publisher from the same country.') }}
+</section>
+{% endblock %}
