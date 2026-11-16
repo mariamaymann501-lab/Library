@@ -1,4 +1,4 @@
-# Lab 4 - Problem 2: Library (Books, Authors, Publishers, Categories, Members, Loans)
+# Lab 4 - 2304068 -- 2304069 -- G1-S1
 
 A Flask + MySQL website for the `library` database. It continues the Lab 3 website (add, edit and delete books and authors, login, image upload) and adds the Lab 4 search pages **F2.1 - F2.6**.
 
